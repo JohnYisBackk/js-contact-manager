@@ -39,15 +39,15 @@ let editingContactId = null;
 // ===============================
 
 function saveData() {
-  localStorage.setItem("contacts", JSON.stringify(contacts));
+  localStorage.setItem("contactManager", JSON.stringify(contacts));
 }
 
 function loadData() {
-  const storedData = localStorage.getItem("contacts");
+  const storedContacts = localStorage.getItem("contactManager");
 
-  if (!storedData) return;
+  if (!storedContacts) return;
 
-  contacts = JSON.parse(storedData);
+  contacts = JSON.parse(storedContacts);
 }
 
 // ===============================
@@ -87,7 +87,9 @@ function addContact() {
 
   saveData();
   renderContacts();
+
   contactForm.reset();
+  fullNameInput.focus();
 }
 
 // ===============================
@@ -95,6 +97,10 @@ function addContact() {
 // ===============================
 
 function deleteContact(id) {
+  const isConfirmed = confirm("Do you want to delete this contact?");
+
+  if (!isConfirmed) return;
+
   contacts = contacts.filter((contact) => contact.id !== id);
 
   saveData();
@@ -104,6 +110,7 @@ function deleteContact(id) {
 // ===============================
 // 6. EDIT CONTACT
 // ===============================
+
 function editContact(id) {
   const contact = contacts.find((contact) => contact.id === id);
 
@@ -144,6 +151,8 @@ function toggleFavorite(id) {
 
 function searchContacts(contactList) {
   const searchValue = searchInput.value.toLowerCase().trim();
+
+  if (!searchValue) return contactList;
 
   return contactList.filter((contact) =>
     contact.name.toLowerCase().includes(searchValue),
