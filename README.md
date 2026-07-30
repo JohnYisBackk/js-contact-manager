@@ -8,7 +8,7 @@ Manage your contacts efficiently with features like searching, filtering, sortin
 
 ## 🚀 Live Demo
 
-🔗
+🔗 https://johnyisbackk.github.io/js-contact-manager/
 
 ---
 
