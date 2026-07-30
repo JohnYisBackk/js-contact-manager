@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="script.js" defer></script>
+    <title>Contact Manager PRO</title>
+  </head>
+  <body>
+    <main class="app-layout">
+      <aside class="sidebar">
+        <div class="navbar">
+          <i data-lucide="users-round"></i>
+
+          <div class="logo-text">
+            <h1>Contact Manager</h1>
+            <span class="pro-badge">PRO</span>
+          </div>
+        </div>
+
+        <div class="settings">
+          <div class="setting active">
+            <i data-lucide="users"></i>
+            <p>Friends</p>
+          </div>
+
+          <div class="setting">
+            <i data-lucide="heart"></i>
+            <p>Family</p>
+          </div>
+
+          <div class="setting">
+            <i data-lucide="briefcase-business"></i>
+            <p>Work</p>
+          </div>
+
+          <div class="setting">
+            <i data-lucide="star"></i>
+            <p>Favorites</p>
+          </div>
+        </div>
+
+        <div class="footer">
+          <p>&copy; 2026 Contact Manager PRO</p>
+          <span>All rights reserved.</span>
+        </div>
+      </aside>
+
+      <section class="main-content">
+        <div class="main-navbar">
+          <h1>All Contacts</h1>
+          <p>Manage all your contacts in one place</p>
+        </div>
+
+        <form class="main-contact-box" id="contactForm">
+          <div class="main-header">
+            <i data-lucide="user-round-plus"></i>
+            <h2>Add new Contact</h2>
+          </div>
+
+          <div class="main-inputs">
+            <div class="main-input">
+              <label for="fullNameInput">Full Name</label>
+              <input
+                type="text"
+                id="fullNameInput"
+                placeholder="Enter full name"
+                autocomplete="off"
+                required
+              />
+            </div>
+
+            <div class="main-input">
+              <label for="phoneNumberInput">Phone Number</label>
+              <input
+                type="tel"
+                id="phoneNumberInput"
+                placeholder="Enter phone number"
+                autocomplete="off"
+                required
+              />
+            </div>
+
+            <div class="main-input">
+              <label for="emailAddressInput">Email Address</label>
+              <input
+                type="email"
+                id="emailAddressInput"
+                placeholder="Enter email address"
+                autocomplete="off"
+                required
+              />
+            </div>
+
+            <div class="main-input">
+              <label for="categorySelect">Category</label>
+              <select id="categorySelect">
+                <option value="" selected disabled>Select Category</option>
+                <option value="friends">Friends</option>
+                <option value="family">Family</option>
+                <option value="work">Work</option>
+                <option value="favorites">Favorites</option>
+              </select>
+            </div>
+            <button type="submit" class="primary-btn" id="addBtn">
+              <i data-lucide="plus"></i>
+              <span>Add Contact</span>
+            </button>
+          </div>
+        </form>
+
+        <div class="search-filter-box">
+          <div class="search-box">
+            <label for="searchInput">Search Contacts</label>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search by name..."
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="filter-box">
+            <label for="filterSelect">Category</label>
+
+            <select id="filterSelect">
+              <option value="all">All Contacts</option>
+              <option value="friends">Friends</option>
+              <option value="family">Family</option>
+              <option value="work">Work</option>
+              <option value="favorites">Favorites</option>
+            </select>
+          </div>
+
+          <div class="sort-box">
+            <label for="sortSelect">Sort By</label>
+
+            <select id="sortSelect">
+              <option value="name-asc">Name (A–Z)</option>
+              <option value="name-desc">Name (Z–A)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          <div class="contacts-section">
+            <div class="contacts-grid" id="contactsGrid">
+              <!-- Render Contacts Here -->
+            </div>
+
+            <div class="empty-state" id="emptyState">
+              <i data-lucide="users-round"></i>
+              <h3>No Contacts Yet.</h3>
+              <p>Add your first contact to get started.</p>
+            </div>
+          </div>
+
+          <aside class="stats-panel">
+            <div class="stats-title">
+              <i data-lucide="chart-no-axes-column-increasing"></i>
+              <h2>Statistics</h2>
+            </div>
+
+            <article class="stat-card">
+              <div class="stat-icon total-icon">
+                <i data-lucide="users-round"></i>
+              </div>
+
+              <div class="stat-info">
+                <h3 id="totalContacts">0</h3>
+                <p>Total Contacts</p>
+              </div>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-icon favorite-icon">
+                <i data-lucide="star"></i>
+              </div>
+
+              <div class="stat-info">
+                <h3 id="favoriteContacts">0</h3>
+                <p>Favorites</p>
+              </div>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-icon filtered-icon">
+                <i data-lucide="search"></i>
+              </div>
+
+              <div class="stat-info">
+                <h3 id="filteredContacts">0</h3>
+                <p>Filtered Results</p>
+              </div>
+            </article>
+          </aside>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
