@@ -54,6 +54,7 @@ Contact Manager PRO
 ├── style.css
 ├── script.js
 ├── preview.png
+├── license
 └── README.md
 ```
 
